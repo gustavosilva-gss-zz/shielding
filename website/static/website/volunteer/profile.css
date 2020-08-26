@@ -1,0 +1,19 @@
+img {
+    object-fit: cover;
+    padding: 0 !important;
+    height: 100%;
+    background: linear-gradient(149deg, rgba(231,14,14,1) 0%, rgb(255, 119, 119) 100%);
+}
+
+body {
+    background: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar {
+    background: linear-gradient(149deg, rgba(231,14,14,1) 0%, rgb(255, 119, 119) 100%);
+    margin-bottom: 10px;
+    margin-left: -10px;
+    margin-right:-10px;
+}

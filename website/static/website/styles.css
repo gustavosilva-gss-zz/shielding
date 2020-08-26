@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Phenomena"; 
+    src: url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.eot"); 
+    src: url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.woff") format("woff"), url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/2360fe87d82d652ed8c9f1b03f26306e.svg#Phenomena") format("svg"); 
+}
+
+body {
+    background: rgb(231,14,14);
+    background: -moz-linear-gradient(149deg, rgba(231,14,14,1) 0%, rgba(255,194,194,1) 100%);
+    background: -webkit-linear-gradient(149deg, rgba(231,14,14,1) 0%, rgba(255,194,194,1) 100%);
+    background: linear-gradient(149deg, rgba(231,14,14,1) 0%, rgba(255,194,194,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e70e0e",endColorstr="#ffc2c2",GradientType=1); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.body {
+    position: relative;
+}
+
+.nav-link, .navbar-brand {
+    color: white !important;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    color: black;
+}
+
+/* rounded tags (status and edit) */
+
+.edit, .status {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: white !important;
+    border-radius: 5px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.edit {
+    background: linear-gradient(149deg, rgba(231,14,14,1) 0%, rgb(255, 119, 119) 100%);
+}
+
+/* modal */
+
+.modal {
+    background-color: rgb(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    display: none;
+    text-align: center;
+}
+
+.modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    height: 100%;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 80vw;
+    max-width: none;
+}
+
+.modal-btn {
+    float: right;
+}

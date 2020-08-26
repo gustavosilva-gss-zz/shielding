@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block additional_head %}
+    <link href="{% static 'website/index/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <img src="https://image.flaticon.com/icons/svg/62/62764.svg" id="face-shield">
+
+    <div class="container">
+        <span id="centered">
+
+            get face shields for your health establishment<br>
+            or volunteer today!<br>
+    
+            <div id="cards-holder" class="row justify-content-around">
+    
+                <a href="{% url 'establishment_register' %}" id="establishment-card" class="card col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title"><b>Request face shields</b></h3>
+                        Register your health establishment and we'll find you volunteers for the production of face shields!
+                    </div>
+                </a>
+    
+                <a href="{% url 'volunteer_register' %}" id="volunteer-card" class="card col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title"><b>Donate face shields</b></h3>
+                        Do you have a 3D printer or some other method of production of face shields? Find a health
+                        establishment to donate!
+                    </div>
+                </a>
+    
+            </div>
+        </span>
+    </div>
+{% endblock %}

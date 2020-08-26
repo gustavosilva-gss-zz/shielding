@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}{{ establishment.name }}{% endblock %}
+
+{% block additional_head %}
+    <link href="{% static 'website/establishment/profile.css' %}" rel="stylesheet">
+    <script src="{% static 'website/establishment/profile.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+
+            <img class="d-block mx-auto mx-md-0 col-10 col-md-7 col-lg-4" src="{{ establishment.image_url }}">
+
+            <div class="col-11 col-md-5 col-lg-8">
+                <strong>{{ establishment.name }}</strong><br>
+                <span>Address: {{ establishment.address }}</span><br>
+                <span>Needs: {{ establishment.need }} face shields</span><br>
+                <button type="button" id="donate-btn" class="btn btn-primary">donate</button>
+            </div>
+        </div>
+    </div>
+
+    <form id="donate-form" class="modal" tabindex="-1" role="dialog">
+
+        <input type="hidden" id="establishment-id" value="{{ establishment.id }}">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Donate</h5>
+                    <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        How will the delivery of the face shields work?
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="delivery-radios" id="delivery-1" value="volunteer-delivering" checked>
+                            <label class="form-check-label" for="delivery-1">
+                                You'll deliver them to {{ establishment.name }}'s address
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="delivery-radios" id="delivery-2" value="volunteer-withdrawing">
+                            <label class="form-check-label" for="delivery-2">
+                                {{ establishment.name }} will get them at your address
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address where {{ establishment.name }} can get the face shields with you</label>
+                        
+                        {% if user.volunteer.address %}
+                            <input class="form-control" type="text" id="address" value="{{ user.volunteer.address }}">
+                        {% else %}
+                            <input class="form-control" type="text" id="address" placeholder="Address">
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label>This establishment needs <strong>{{ establishment.need }} face shields</strong>. How many can you donate?</label>
+                        <input class="form-control col-3 col-sm-2 col-md-1" min="1" required type="number" id="quantity">
+                    </div>
+
+                    <div class="form-group">
+                        <label>When, approximately, will the face shields be ready?</label>
+                        <input type="date" required id="estimated_time"> 
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <input class="btn btn-primary" type="submit" value="Donate">
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

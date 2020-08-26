@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Volunteer{% endblock %}
+
+{% block additional_head %}
+    <link href="{% static 'website/volunteer/volunteer.css' %}" rel="stylesheet">
+    <script src="{% static 'website/volunteer/volunteer.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="establishments" class="row justify-content-around">
+            
+        </div>
+    </div>
+{% endblock %}

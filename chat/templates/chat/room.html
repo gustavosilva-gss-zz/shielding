@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Chat{% endblock %}
+
+{% block additional_head %}
+    <link href="{% static 'chat/room.css' %}" rel="stylesheet">
+    <script src="{% static 'chat/room.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="chat-log">
+    </div><br>
+    <div class="row">
+        <input id="chat-message-input" class="col-10" type="text" size="100">
+        <input id="chat-message-submit" class="col-2" type="button" value="Send">
+    </div>
+    {{ chat_id|json_script:"chat-id" }}
+    {{ user_id|json_script:"user-id" }}
+{% endblock %}

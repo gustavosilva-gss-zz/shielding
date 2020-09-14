@@ -43,6 +43,12 @@ class Volunteer(models.Model):
         }
 
 class Donation(models.Model):
+    STATUS = (
+        ('S', 'submitted'),
+        ('D', 'delivered'),
+        ('C', 'canceled'),
+    )
+    
     volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE, related_name="donations")
     establishment = models.ForeignKey(Establishment, on_delete=models.CASCADE, related_name="donations")
     quantity = models.PositiveIntegerField()

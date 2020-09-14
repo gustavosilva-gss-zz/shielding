@@ -8,7 +8,7 @@ urlpatterns = [
     path("volunteer/profile", views.volunteer_profile, name="volunteer_profile"),
     path("establishment/<int:id>", views.establishment_profile, name="establishment"),
     path("establishment/manage", views.establishment_manage, name="establishment_manage"),
-    path('open-chat', views.open_chat, name='open_chat'),
+    path('chat/<int:chat_id>', views.room, name='room'),
 
     # AUTHENTICATION
 
@@ -27,4 +27,5 @@ urlpatterns = [
     path("donation/<int:id>", views.donation, name="donation"),
     path("edit-donation/<int:id>", views.edit_donation, name="edit_donation"),
     path("edit-volunteer/<str:field>", views.edit_volunteer, name="edit_volunteer"),
+    path('open-chat', views.open_chat, name='open_chat'),
 ]

@@ -10,10 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 
-from .models import User, Establishment, Volunteer, Donation
-from chat.models import Chat
-
-from chat.views import room
+from .models import User, Establishment, Volunteer, Donation, Chat
 
 def index(request):
     if request.user.is_authenticated:
@@ -59,6 +56,13 @@ def establishment_manage(request):
     return render(request, "establishment/manage.html", {
         "establishment": establishment,
         "donations": donations
+    })
+
+@login_required
+def room(request, chat_id):
+    return render(request, 'chat/room.html', {
+        'chat_id': chat_id,
+        'user_id': request.user.id
     })
 
 # AUTHENTICATION

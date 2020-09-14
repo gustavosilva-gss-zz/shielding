@@ -35,7 +35,7 @@
                         {% else %}
                             <td><input type="checkbox" disabled></td>
                         {% endif %}
-                        <td><span class="status">{{ donation.status }}</span></td>
+                        <td><span class="status">{{ donation.get_status_display }}</span></td>
                     </tr>
                 {% endfor %}
             </tbody>

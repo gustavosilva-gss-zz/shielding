@@ -47,23 +47,10 @@ class Donation(models.Model):
     establishment = models.ForeignKey(Establishment, on_delete=models.CASCADE, related_name="donations")
     quantity = models.PositiveIntegerField()
     volunteer_delivering = models.BooleanField()
+    status = models.CharField(max_length=1, null=False, choices=STATUS, default='S')
     submission_time = models.DateTimeField(auto_now_add=True)
     estimated_time = models.DateTimeField()
     delivered_time = models.DateTimeField(null=True)
-
-    #at first I used a choices field for the status but heroku wouldnt work with it
-    #more details here: https://stackoverflow.com/questions/63755702/
-
-    '''
-    the options for status are:
-        submitted,
-        delivered,
-        canceled
-    '''
-
-    #all up to 10 charactes, thats why thats the limit
-
-    status = models.CharField(max_length=10, null=False, default='submitted')
 
     def serialize(self):
         return {
@@ -72,7 +59,7 @@ class Donation(models.Model):
             "establishment": self.establishment.id,
             "quantity": self.quantity,
             "volunteer_delivering": self.volunteer_delivering,
-            "status": self.status,
+            "status": self.get_status_display(),
             "submission_time": self.submission_time.strftime("%b %-d %Y, %-I:%M %p"),
             "estimated_time": self.estimated_time.strftime("%b %-d %Y, %-I:%M %p"),
             "delivered_time": self.delivered_time.strftime("%b %-d %Y, %-I:%M %p") if self.delivered_time else None,

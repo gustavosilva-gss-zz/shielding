@@ -1,4 +1,4 @@
 django-heroku
 gunicorn
 channels
-channels_redis
+asgi_redis

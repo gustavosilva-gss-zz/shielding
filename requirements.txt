@@ -1,4 +1,4 @@
 django-heroku
 uvicorn
 channels
-channels_redis
+channels-redis

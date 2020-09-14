@@ -77,10 +77,10 @@ ASGI_APPLICATION = "shielding.routing.application"
 
 CHANNEL_LAYERS = {
     "default": {
-        "CONFIG": {
-            "hosts": [('localhost','6379')],
-        },
         "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
     },
 }
 

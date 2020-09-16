@@ -2,3 +2,5 @@ django-heroku
 daphne
 channels
 channels-redis
+redis-server
+twisted

@@ -31,8 +31,8 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
-    'website',
     'channels',
+    'website',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatSocket = new WebSocket(
         'ws://'
         + window.location.host
-        + ":6379"
         + '/ws/chat/'
         + chatId
         + '/'

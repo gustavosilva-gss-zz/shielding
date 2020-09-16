@@ -2,8 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatId = JSON.parse(document.getElementById('chat-id').textContent);
     const userId = JSON.parse(document.getElementById('user-id').textContent);
 
+    var protocol = '';
+    if (window.location.protocol === 'https:') {
+        protocol = 'wss:';
+    } else {
+        protocol = 'ws:';
+    }
+
     const chatSocket = new WebSocket(
-        'ws://'
+        protocol
+        + '//'
         + window.location.host
         + '/ws/chat/'
         + chatId

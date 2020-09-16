@@ -1,4 +1,4 @@
 django-heroku
-uvicorn
+daphne
 channels
 channels-redis
